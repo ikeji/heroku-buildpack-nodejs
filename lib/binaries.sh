@@ -101,7 +101,7 @@ install_nodejs() {
   fi
 
   output_file="/tmp/node.tar.gz"
-  code=$(curl "$download_url" -L --silent --fail --retry 5 --retry-max-time 15 --retry-connrefused --connect-timeout 5 -o "$output_file" --write-out "%{http_code}")
+  code=$(curl "$download_url" -L --silent --fail --retry 5 --retry-max-time 15 --retry-connrefused --connect-timeout 50 -o "$output_file" --write-out "%{http_code}")
 
   if [ "$code" != "200" ]; then
     echo "Unable to download node: $code" && false
